@@ -1,0 +1,27 @@
+<h1>Enter your job history!</h1>
+
+<form id="resume" action="/resume" method="post">
+  <div class = "form-group">
+    <input type="text" class="form-control" name="title" placeholder="Enter your job title">
+  </div>
+  <div class = "form-group">
+    <input type="text" name="employer" class="form-control" placeholder="Enter your employer">
+  </div>
+  <div class = "form-group">
+    <input type="text" name="duration"  class="form-control" placeholder="Enter the duration of your employment">
+  </div>
+  <div class = "form-group">
+    <textarea rows="3" name="comments" class="form-control" placeholder="Enter job details here"></textarea>
+  </div>
+  <button type="submit">Add this job</button>
+</form>
+
+<p>
+  <% @jobs.each() do |job| %>
+  <ul>
+    <li class="title"><%= job.title() %></li>
+    <li class="second_line">at <%= job.employer() %>, <%= job.duration() %> </li>
+    <li class="comments"><%= job.comments() %></li>
+  </ul>
+    <% end %>
+</p>
